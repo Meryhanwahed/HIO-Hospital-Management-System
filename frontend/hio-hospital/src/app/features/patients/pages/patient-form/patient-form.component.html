@@ -1,69 +1,150 @@
-<h2>➕ إضافة مريض جديد</h2>
-
-<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
-  <div class="form-grid">
-    <label>الاسم</label>
-    <input formControlName="username" placeholder="اسم المريض" />
-
-    <label>الرقم القومي</label>
-    <input formControlName="nationalId" placeholder="الرقم القومي" />
-
-    <label>العمر</label>
-    <input type="number" formControlName="age" placeholder="العمر" />
-
-    <label for="gender">النوع</label>
-<select id="gender" formControlName="gender" aria-label="اختر النوع">
-  <option value="male">ذكر</option>
-  <option value="female">أنثى</option>
-</select>
-
-
-    <label>الهاتف</label>
-    <input formControlName="phone" placeholder="رقم الهاتف" />
-
-    <label>العنوان</label>
-    <input formControlName="address" placeholder="العنوان" />
-
-    <label>الوزن</label>
-    <input type="number" formControlName="weight" placeholder="الوزن" />
-
-    <label>الطول</label>
-    <input type="number" formControlName="height" placeholder="الطول" />
-
-    <label>فصيلة الدم</label>
-    <input formControlName="bloodType" placeholder="A+, B+, O- ..." />
-
-    <label>القسم الطبي</label>
-    <input formControlName="specializedMedicalDepartment" placeholder="مثال: عظام" />
-
-    <label>التشخيص</label>
-    <input formControlName="diagnosis" placeholder="تشخيص الحالة" />
-
-    <label>العادات</label>
-    <input formControlName="habits" placeholder="مثال: تدخين" />
-
-    <label>الأمراض المزمنة</label>
-    <input formControlName="chronicDiseases" placeholder="مثال: ضغط، سكر" />
-
-    <label>وصف الحالة</label>
-    <textarea formControlName="CaseDescription" placeholder="وصف الحالة الطبية"></textarea>
-
-  <label for="needsSurgery">يحتاج جراحة؟</label>
-<select id="needsSurgery" formControlName="needsSurgery" aria-label="هل يحتاج جراحة؟">
-  <option value="yes">نعم</option>
-  <option value="no">لا</option>
-</select>
-
-
-    <label>اسم الطبيب</label>
-    <input formControlName="doctorName" placeholder="اسم الطبيب" />
-
-    <label>تخصص الطبيب</label>
-    <input formControlName="doctorSpecialization" placeholder="التخصص" />
-
-    <label>العلاج</label>
-    <input formControlName="treatments" placeholder="العلاج" />
+<div class="container">
+  <div class="header">
+    <h2><i class="fas fa-user-plus"></i> إضافة مريض جديد</h2>
   </div>
+  
+  <div class="patient-form-card">
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <div class="form-section-title">
+          <i class="fas fa-user-circle"></i> المعلومات الأساسية
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('username')">
+          <label>الاسم <span class="required">*</span></label>
+          <input formControlName="username" placeholder="اسم المريض" />
+          <div class="error-message" *ngIf="isFieldInvalid('username')">
+            {{ getFieldError('username') }}
+          </div>
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('nationalId')">
+          <label>الرقم القومي <span class="required">*</span></label>
+          <input formControlName="nationalId" placeholder="الرقم القومي" />
+          <div class="error-message" *ngIf="isFieldInvalid('nationalId')">
+            {{ getFieldError('nationalId') }}
+          </div>
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('age')">
+          <label>العمر <span class="required">*</span></label>
+          <input type="number" formControlName="age" placeholder="العمر" />
+          <div class="error-message" *ngIf="isFieldInvalid('age')">
+            {{ getFieldError('age') }}
+          </div>
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('gender')">
+          <label for="gender">النوع <span class="required">*</span></label>
+          <select id="gender" formControlName="gender">
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+          </select>
+          <div class="error-message" *ngIf="isFieldInvalid('gender')">
+            {{ getFieldError('gender') }}
+          </div>
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('phone')">
+          <label>الهاتف <span class="required">*</span></label>
+          <input formControlName="phone" placeholder="رقم الهاتف" />
+          <div class="error-message" *ngIf="isFieldInvalid('phone')">
+            {{ getFieldError('phone') }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>العنوان</label>
+          <input formControlName="address" placeholder="العنوان" />
+        </div>
+        
+        <div class="form-section-title">
+          <i class="fas fa-heartbeat"></i> المعلومات الطبية
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('weight')">
+          <label>الوزن (كجم)</label>
+          <input type="number" formControlName="weight" placeholder="الوزن" />
+          <div class="error-message" *ngIf="isFieldInvalid('weight')">
+            {{ getFieldError('weight') }}
+          </div>
+        </div>
+        
+        <div class="form-group" [class.invalid]="isFieldInvalid('height')">
+          <label>الطول (سم)</label>
+          <input type="number" formControlName="height" placeholder="الطول" />
+          <div class="error-message" *ngIf="isFieldInvalid('height')">
+            {{ getFieldError('height') }}
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>فصيلة الدم</label>
+          <select formControlName="bloodType" title="اختر فصيلة الدم">
+            <option value="">اختر فصيلة الدم</option>
+            <option *ngFor="let type of bloodTypes" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>القسم الطبي</label>
+          <select id="specializedMedicalDepartment" formControlName="specializedMedicalDepartment" title="اختر القسم الطبي">
+            <option value="">اختر القسم الطبي</option>
+            <option *ngFor="let dept of medicalDepartments" [value]="dept">{{dept}}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>التشخيص</label>
+          <input formControlName="diagnosis" placeholder="تشخيص الحالة" />
+        </div>
+        
+        <div class="form-group">
+          <label>العادات</label>
+          <input formControlName="habits" placeholder="مثال: تدخين" />
+        </div>
+        
+        <div class="form-group">
+          <label>الأمراض المزمنة</label>
+          <input formControlName="chronicDiseases" placeholder="مثال: ضغط، سكر" />
+        </div>
+        
+        <div class="form-group medical-info">
+          <label>وصف الحالة</label>
+          <textarea formControlName="CaseDescription" placeholder="وصف الحالة الطبية"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="needsSurgery">يحتاج جراحة؟</label>
+          <select id="needsSurgery" formControlName="needsSurgery">
+            <option value="no">لا</option>
+            <option value="yes">نعم</option>
+          </select>
+        </div>
+        
+        <div class="form-section-title">
+          <i class="fas fa-user-md"></i> معلومات الطبيب
+        </div>
+        
+        <div class="form-group">
+          <label>اسم الطبيب</label>
+          <input formControlName="doctorName" placeholder="اسم الطبيب" />
+        </div>
+        
+        <div class="form-group">
+          <label>تخصص الطبيب</label>
+          <input formControlName="doctorSpecialization" placeholder="التخصص" />
+        </div>
+        
+        <div class="form-group">
+          <label>العلاج</label>
+          <input formControlName="treatments" placeholder="العلاج" />
+        </div>
+      </div>
 
-  <button type="submit" [disabled]="patientForm.invalid">💾 حفظ</button>
-</form>
+      <button class="submit-btn" type="submit" [disabled]="patientForm.invalid">
+        <i class="fas fa-save"></i> حفظ البيانات
+      </button>
+    </form>
+  </div>
+</div>

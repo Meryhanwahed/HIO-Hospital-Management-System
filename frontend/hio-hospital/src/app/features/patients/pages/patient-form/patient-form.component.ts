@@ -13,6 +13,8 @@ import { PatientsService } from '../../services/patient.service';
 })
 export class PatientFormComponent {
   patientForm: FormGroup;
+bloodTypes: any;
+medicalDepartments: any;
 
   constructor(
     private fb: FormBuilder,
@@ -56,5 +58,34 @@ export class PatientFormComponent {
         }
       });
     }
+  }
+  private markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
+  }
+
+  // دالة مساعدة للتحقق من صلاحية الحقل وعرض رسائل الخطأ
+  isFieldInvalid(fieldName: string): boolean {
+    const field = this.patientForm.get(fieldName);
+    return field!.invalid && (field!.touched || field!.dirty);
+  }
+
+  getFieldError(fieldName: string): string {
+    const field = this.patientForm.get(fieldName);
+    if (field?.errors) {
+      if (field.errors['required']) return 'هذا الحقل مطلوب';
+      if (field.errors['minlength']) return `الحد الأدنى للأحرف هو ${field.errors['minlength'].requiredLength}`;
+      if (field.errors['pattern']) {
+        if (fieldName === 'nationalId') return 'يجب أن يتكون الرقم القومي من 14 رقمًا';
+        if (fieldName === 'phone') return 'رقم الهاتف غير صحيح';
+      }
+      if (field.errors['min']) return `القيمة يجب أن تكون على الأقل ${field.errors['min'].min}`;
+      if (field.errors['max']) return `القيمة يجب أن تكون على الأكثر ${field.errors['max'].max}`;
+    }
+    return '';
   }
 }
