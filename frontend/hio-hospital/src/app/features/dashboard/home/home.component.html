@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="dashboard">
+  <h2>مرحبًا بك 👋</h2>
+  <p>
+    هذا هو نظام إدارة مستشفى التأمين الصحي بدمياط.<br>
+    من هنا يمكنك متابعة المرضى، الأطباء، الصيدلية، الملفات الطبية، الإحالات، وشئون العاملين.
+  </p>
+
+  <!-- كروت الإحصائيات -->
+  <div class="stats">
+    <div class="card" *ngFor="let stat of stats" [style.borderTopColor]="stat.color">
+      <div class="icon">{{ stat.icon }}</div>
+      <div class="info">
+        <h3>{{ stat.value }}</h3>
+        <p>{{ stat.title }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- روابط سريعة -->
+  <div class="quick-links">
+    <a routerLink="/patients/list">👨‍⚕️ إدارة المرضى</a>
+    <a routerLink="/doctors/list">🧑‍⚕️ إدارة الأطباء</a>
+    <a routerLink="/patients/list">📂 الملفات الطبية</a>
+  </div>
+</div>
+

@@ -1,0 +1,82 @@
+/* العنوان */
+.title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* رسائل التحميل / الخطأ */
+.loading,
+.error {
+  font-size: 16px;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.loading {
+  background: #f1f8ff;
+  color: #007bff;
+}
+
+.error {
+  background: #fdecea;
+  color: #dc3545;
+}
+
+/* الكارت */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow-x: auto; /* عشان الموبايل */
+}
+
+/* الجدول */
+.doctor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.doctor-table th,
+.doctor-table td {
+  text-align: right;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.doctor-table th {
+  width: 160px;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.doctor-table td {
+  color: #333;
+}
+
+/* الزر */
+.btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.back-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.back-btn:hover {
+  background: #0056b3;
+}

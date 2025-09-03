@@ -1,0 +1,101 @@
+footer {
+  background-color: #1d1d1d;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  color: #f1f1f1;
+  text-align: right; 
+  padding-left: 80px;
+}
+
+footer h5 {
+  color: #00a9ff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+footer p {
+  color: #bbb;
+  line-height: 1.7;
+}
+
+footer .nav-link,
+footer .contact-info li span {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+footer .nav-link:hover {
+  color: #00a9ff;
+}
+
+footer .contact-info li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+footer .contact-info li i {
+  margin-left: 10px;
+  color: #00a9ff;
+}
+
+footer form p {
+  color: #bbb;
+}
+
+footer .form-control {
+  border: 1px solid #444;
+  background-color: transparent;
+  border-radius: 50px;
+  color: #f1f1f1;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+footer .form-control:focus {
+  border-color: #00a9ff;
+  box-shadow: none;
+}
+
+footer .form-control::placeholder {
+  color: #888;
+}
+
+footer .btn {
+  background-color: #00a9ff;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 20px;
+  transition: 0.3s ease;
+}
+
+footer .btn:hover {
+  background-color: #0086c9;
+}
+
+footer .rights p {
+  color: #999;
+  font-size: 14px;
+}
+
+footer .rights .list-unstyled a {
+  background-color: #333;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #f1f1f1;
+  transition: all 0.3s ease;
+}
+
+footer .rights .list-unstyled a:hover {
+  background-color: #00a9ff;
+  transform: translateY(-5px);
+}
+
+footer .rights .list-unstyled a:hover i {
+  color: #000;
+}

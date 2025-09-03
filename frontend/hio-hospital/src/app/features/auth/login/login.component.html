@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="login-container">
+  <h2> تسجيل الدخول</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="email"> البريد الإلكتروني</label>
+      <input id="email" formControlName="email" type="email" placeholder="ادخل البريد" title="البريد الإلكتروني">
+    </div>
+
+    <div class="form-group">
+      <label for="password"> كلمة المرور</label>
+      <input id="password" formControlName="password" type="password" placeholder="ادخل كلمة المرور" title="كلمة المرور">
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? "⏳ جاري الدخول..." : "➡ دخول" }}
+    </button>
+  </form>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+</div>

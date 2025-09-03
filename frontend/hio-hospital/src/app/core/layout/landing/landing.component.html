@@ -1,0 +1,30 @@
+<header>
+  <div class="container">
+    <!-- اللوجو -->
+    <a routerLink="/" class="logo">
+      <img src="assets/images/logo.png" alt="شعار سمارت دار" />
+    </a>
+
+    <!-- القائمة -->
+    <nav>
+      <i class="fas fa-bars toggle-menu"></i>
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">الرئيسية</a></li>
+        <li><a routerLink="/feature" routerLinkActive="active">من نحن</a></li>
+        <li><a routerLink="/auth/login" routerLinkActive="active">تسجيل الدخول</a></li>
+        <li><a routerLink="/auth/register" routerLinkActive="active">إنشاء حساب</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+
+<app-hero></app-hero>
+<app-feature></app-feature>
+<app-why-us></app-why-us>
+<app-contact-us></app-contact-us>
+<app-footer></app-footer>

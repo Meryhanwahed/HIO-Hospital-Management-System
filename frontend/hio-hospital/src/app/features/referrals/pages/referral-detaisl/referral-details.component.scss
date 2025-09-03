@@ -1,0 +1,43 @@
+.referral-details {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1976d2;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      text-align: right;
+      padding: 10px;
+      background: #e3f2fd;
+      width: 40%;
+      color: #0d47a1;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  margin: 2rem;
+}
+
+.error {
+  color: #b00020;
+  text-align: center;
+  margin: 1rem;
+}

@@ -1,0 +1,56 @@
+<div class="body">
+<h2>➕ إضافة طبيب جديد</h2>
+
+<form [formGroup]="doctorForm" (ngSubmit)="onSubmit()" class="doctor-form">
+  <div class="form-group">
+    <label for="doctorname">اسم الطبيب</label>
+    <input id="doctorname" formControlName="doctorname" placeholder="ادخل اسم الطبيب" title="اسم الطبيب" />
+  </div>
+
+  <div class="form-group">
+    <label for="nationalId">الرقم القومي</label>
+    <input id="nationalId" formControlName="nationalId" placeholder="ادخل الرقم القومي" title="الرقم القومي" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">البريد الإلكتروني</label>
+    <input id="email" formControlName="email" type="email" placeholder="ادخل البريد" title="البريد الإلكتروني" />
+  </div>
+
+  <div class="form-group">
+    <label for="age">العمر</label>
+    <input id="age" formControlName="age" type="number" placeholder="ادخل العمر" title="العمر" />
+  </div>
+
+  <div class="form-group">
+    <label for="gender">النوع</label>
+    <select id="gender" formControlName="gender" title="اختر النوع">
+      <option value="">-- اختر النوع --</option>
+      <option value="male">ذكر</option>
+      <option value="female">أنثى</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">الهاتف</label>
+    <input id="phone" formControlName="phone" placeholder="ادخل رقم الهاتف" title="الهاتف" />
+  </div>
+
+  <div class="form-group">
+    <label for="specialization">التخصص</label>
+    <input id="specialization" formControlName="specialization" placeholder="ادخل التخصص" title="التخصص" />
+  </div>
+
+  <div class="form-group">
+    <label for="medicalDepartment">القسم الطبي</label>
+    <input id="medicalDepartment" formControlName="medicalDepartment" placeholder="ادخل القسم" title="القسم الطبي" />
+  </div>
+
+  <div class="actions">
+    <button type="submit">✅ حفظ</button>
+  </div>
+</form>
+
+<p *ngIf="message" class="success">{{ message }}</p>
+<p *ngIf="error" class="error">{{ error }}</p>
+</div>

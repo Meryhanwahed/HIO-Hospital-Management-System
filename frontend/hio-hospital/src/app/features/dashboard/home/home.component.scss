@@ -1,0 +1,73 @@
+.dashboard {
+  text-align: right;
+  direction: rtl;
+  padding: 2rem;
+
+  h2 {
+    color: #1976d2;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  /* كروت الإحصائيات */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    border-top: 6px solid;
+  }
+
+  .card .icon {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+
+  .card .info h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .card .info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* روابط سريعة */
+  .quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .quick-links a {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    background: #1976d2;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .quick-links a:hover {
+    background: #125ca1;
+  }
+}

@@ -1,1 +1,28 @@
-<p>register works!</p>
+<h2>📝 إنشاء حساب جديد</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <label for="username">الاسم</label>
+  <input id="username" formControlName="username" placeholder="ادخل الاسم" title="اسم المستخدم">
+
+  <label for="nationalId">الرقم القومي</label>
+  <input id="nationalId" formControlName="nationalId" placeholder="ادخل الرقم القومي" title="الرقم القومي">
+
+  <label for="email">البريد الإلكتروني</label>
+  <input id="email" formControlName="email" type="email" placeholder="ادخل البريد" title="البريد الإلكتروني">
+
+  <label for="gender">النوع</label>
+  <select id="gender" formControlName="gender" title="اختر النوع">
+    <option value="male">ذكر</option>
+    <option value="female">أنثى</option>
+  </select>
+
+  <label for="age">العمر</label>
+  <input id="age" formControlName="age" type="number" placeholder="ادخل العمر" title="العمر">
+
+  <label for="phone">الهاتف</label>
+  <input id="phone" formControlName="phone" placeholder="ادخل رقم الهاتف" title="الهاتف">
+
+  <label for="password">كلمة المرور</label>
+  <input id="password" formControlName="password" type="password" placeholder="ادخل كلمة المرور" title="كلمة المرور">
+
+  <button type="submit">✅ تسجيل</button>
+</form>

@@ -1,0 +1,86 @@
+.patient-details, .patient-edit {
+  max-width: 850px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1976d2;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      text-align: right;
+      padding: 10px;
+      background: #e3f2fd;
+      width: 30%;
+      color: #0d47a1;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: 0.2s;
+
+      &:focus {
+        border-color: #1976d2;
+        outline: none;
+      }
+    }
+
+    small.error {
+      color: #b00020;
+      font-size: 0.8rem;
+      margin-top: 2px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+}
+
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+
+  &.edit { background: #1976d2; color: #fff; }
+  &.save { background: #2e7d32; color: #fff; }
+  &.cancel { background: #b00020; color: #fff; }
+  &.referral { background: #0288d1; color: #fff; }
+}
+
+.error {
+  color: #b00020;
+  text-align: center;
+  margin: 1rem;
+}

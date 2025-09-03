@@ -1,1 +1,21 @@
-<p>header works!</p>
+<header class="main-header">
+  <nav class="navbar">
+    <div class="nav-left">
+      <a routerLink="/" class="logo"> الرئيسية</a>
+      <a routerLink="/patients/list" *ngIf="isLoggedIn"> المرضى</a>
+      <a routerLink="/doctors/list" *ngIf="isLoggedIn">الأطباء</a>
+    </div>
+
+    <div class="nav-right">
+      <ng-container *ngIf="!isLoggedIn">
+        <a routerLink="/auth/login" class="btn login-btn">دخول</a>
+        <a routerLink="/auth/register" class="btn register-btn">تسجيل</a>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <span class="welcome">👋 أهلاً {{ user?.username || user?.email }}</span>
+        <button class="btn logout-btn" (click)="logout()">خروج</button>
+      </ng-container>
+    </div>
+  </nav>
+</header>

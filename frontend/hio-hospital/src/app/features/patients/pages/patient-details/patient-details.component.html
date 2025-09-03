@@ -1,1 +1,127 @@
-<p>patient-details works!</p>
+<div *ngIf="loading" class="loading">
+  ⏳ جاري تحميل البيانات...
+</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<!-- عرض بيانات المريض -->
+<div *ngIf="patient && !loading && !editing" class="patient-details">
+  <h2>👤 تفاصيل المريض</h2>
+  <table>
+    <tr><th>الاسم</th><td>{{ patient.username }}</td></tr>
+    <tr><th>الرقم القومي</th><td>{{ patient.nationalId }}</td></tr>
+    <tr><th>السن</th><td>{{ patient.age }}</td></tr>
+    <tr><th>النوع</th><td>{{ patient.gender }}</td></tr>
+    <tr><th>الهاتف</th><td>{{ patient.phone }}</td></tr>
+    <tr><th>العنوان</th><td>{{ patient.address }}</td></tr>
+    <tr><th>الوزن</th><td>{{ patient.weight }}</td></tr>
+    <tr><th>الطول</th><td>{{ patient.height }}</td></tr>
+    <tr><th>فصيلة الدم</th><td>{{ patient.bloodType }}</td></tr>
+    <tr><th>القسم الطبي</th><td>{{ patient.specializedMedicalDepartment }}</td></tr>
+    <tr><th>التشخيص</th><td>{{ patient.diagnosis }}</td></tr>
+    <tr><th>العادات</th><td>{{ patient.habits }}</td></tr>
+    <tr><th>الأمراض المزمنة</th><td>{{ patient.chronicDiseases }}</td></tr>
+    <tr><th>وصف الحالة</th><td>{{ patient.CaseDescription }}</td></tr>
+    <tr><th>هل يحتاج جراحة؟</th><td>{{ patient.needsSurgery }}</td></tr>
+    <tr><th>العلاج</th><td>{{ patient.treatments }}</td></tr>
+  </table>
+
+  <button class="btn edit" (click)="toggleEdit()">✏ تعديل</button>
+</div>
+
+<!-- نموذج التعديل -->
+<div *ngIf="editing && patientForm" class="patient-edit">
+  <h2>✏ تعديل بيانات المريض</h2>
+
+  <form [formGroup]="patientForm" (ngSubmit)="onUpdate()">
+    <div class="form-group">
+      <label for="username">الاسم</label>
+      <input id="username" type="text" formControlName="username">
+      <small *ngIf="patientForm.get('username')?.touched && patientForm.get('username')?.invalid" class="error">
+        الاسم مطلوب
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="nationalId">الرقم القومي</label>
+      <input id="nationalId" type="text" formControlName="nationalId">
+      <small *ngIf="patientForm.get('nationalId')?.touched && patientForm.get('nationalId')?.invalid" class="error">
+        الرقم القومي غير صحيح
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label for="age">العمر</label>
+      <input id="age" type="number" formControlName="age">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">النوع</label>
+      <select id="gender" formControlName="gender">
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">الهاتف</label>
+      <input id="phone" type="text" formControlName="phone">
+    </div>
+
+    <div class="form-group">
+      <label for="address">العنوان</label>
+      <input id="address" type="text" formControlName="address">
+    </div>
+
+    <div class="form-group">
+      <label for="diagnosis">التشخيص</label>
+      <input id="diagnosis" type="text" formControlName="diagnosis">
+    </div>
+
+    <div class="form-group">
+      <label for="doctorName">اسم الطبيب</label>
+      <input id="doctorName" type="text" formControlName="doctorName">
+    </div>
+
+    <div class="form-group">
+      <label for="doctorSpecialization">تخصص الطبيب</label>
+      <input id="doctorSpecialization" type="text" formControlName="doctorSpecialization">
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn save">💾 حفظ</button>
+      <button type="button" class="btn cancel" (click)="toggleEdit()">❌ إلغاء</button>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<!-- زر إضافة إحالة -->
+<button class="btn referral" (click)="toggleReferralForm()">
+  {{ showReferralForm ? '❌ إغلاق الإحالة' : '➕ إضافة إحالة' }}
+</button>
+
+<!-- فورم الإحالة -->
+<div *ngIf="showReferralForm">
+  <app-referral-form 
+    [patientId]="patient?._id || null" 
+    (referralCreated)="loadReferrals()">
+  </app-referral-form>
+</div>
+
+<hr>
+
+<!-- قائمة الإحالات -->
+<h3>📋 الإحالات الخاصة بالمريض</h3>
+<ul *ngIf="referrals.length > 0; else noReferrals">
+  <li *ngFor="let r of referrals">
+    <strong>القسم:</strong> {{ r.referralToSection }} |
+    <strong>الطبيب:</strong> {{ r.referralTo }} |
+    <strong>السبب:</strong> {{ r.reasonForReferral }}
+  </li>
+</ul>
+
+<ng-template #noReferrals>
+  <p>⚠ لا توجد إحالات لهذا المريض</p>
+</ng-template>

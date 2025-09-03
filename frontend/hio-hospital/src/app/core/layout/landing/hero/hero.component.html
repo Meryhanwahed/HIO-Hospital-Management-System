@@ -1,0 +1,27 @@
+<section class="hero" id="hero">
+  <!-- صور الهيرو -->
+  <div class="hero-slick">
+    <img 
+      *ngFor="let img of images; let i = index" 
+      [src]="img" 
+      [class.active]="i === currentIndex"
+      alt="Hospital Smart System"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- النصوص -->
+  <div class="text">
+    <div class="sup-text">
+      <h2> الهيئة العامة للتأمين الصحى بمحافظة دمياط </h2>
+      <p>
+        منصة متكاملة تساعدك على إدارة المرضى، الأطباء، الأقسام الطبية والإحالات 
+        بكفاءة عالية وسهولة تامة.
+      </p>
+    </div>
+    <h2>صحتك تبدأ من هنا </h2>
+    <button  routerLink="/auth/register">
+      ابدأ الآن
+    </button>
+  </div>
+</section>

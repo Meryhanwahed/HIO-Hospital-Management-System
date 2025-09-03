@@ -1,0 +1,78 @@
+<footer class="pt-5 pb-2 bg-light">
+  <div class="container">
+    <div class="row">
+      <!-- الشعار ومعلومات النظام -->
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <a routerLink="/" class="d-flex align-items-center mb-3 text-decoration-none">
+          <img src="assets/images/logo.png" alt="شعار نظام المستشفى الذكي" width="120" height="120" />
+        </a>
+        <p class="text-muted">
+           "الهيئة العامة للتأمين الصحى بمحافظة دمياط"
+        </p>
+        <ul class="contact-info list-unstyled d-flex flex-column gap-3 mt-4">
+          <li class="d-flex align-items-center">
+            <i class="fa-solid fa-envelope me-2"></i>
+            <span>support&#64;hospital-system.com</span>
+          </li>
+          <li class="d-flex align-items-center">
+            <i class="fa-solid fa-phone me-2"></i>
+            <span>+20 101 234 5678</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- روابط سريعة -->
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <h5 class="fw-bold">روابط سريعة</h5>
+        <ul class="list-unstyled">
+          <li><a routerLink="/auth/login" class="text-muted">🔑 تسجيل الدخول</a></li>
+          <li><a routerLink="/auth/register" class="text-muted">📝 إنشاء حساب</a></li>
+          <li><a routerLink="/dashboard" class="text-muted">📊 لوحة التحكم</a></li>
+          <li><a routerLink="/patients/list" class="text-muted">👨‍⚕️ إدارة المرضى</a></li>
+        </ul>
+      </div>
+
+      <!-- الاشتراك في النشرة البريدية -->
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+        <form>
+          <h5 class="fw-bold">اشترك في نشرتنا</h5>
+          <p class="text-muted">تابع أحدث الأخبار والتحديثات من النظام.</p>
+          <div class="input-group">
+            <input
+              id="newsletter"
+              type="email"
+              class="form-control"
+              placeholder="أدخل بريدك الإلكتروني"
+              aria-label="أدخل بريدك الإلكتروني"
+              required
+            />
+            <button class="btn btn-primary" type="submit">اشترك</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- الحقوق وروابط التواصل الاجتماعي -->
+    <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
+      <ul class="list-unstyled d-flex gap-3">
+        <li>
+          <a class="text-dark" href="#" aria-label="فيسبوك">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a class="text-dark" href="#" aria-label="إنستغرام">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a class="text-dark" href="#" aria-label="تويتر">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+      </ul>
+<p class="text-muted">جميع الحقوق محفوظة للنظام &#64;2025</p>
+
+    </div>
+  </div>
+</footer>

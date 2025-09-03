@@ -1,1 +1,25 @@
-<p>referral-form works!</p>
+<div class="referral-form-container">
+  <h3>➕ إنشاء إحالة جديدة</h3>
+
+  <form [formGroup]="referralForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="referralToSection">القسم المحوّل إليه</label>
+      <input id="referralToSection" formControlName="referralToSection" placeholder="مثال: قلب">
+    </div>
+
+    <div class="form-group">
+      <label for="reasonForReferral">سبب الإحالة</label>
+      <textarea id="reasonForReferral" formControlName="reasonForReferral" placeholder="اكتب السبب"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="referralTo">اسم الطبيب</label>
+      <input id="referralTo" formControlName="referralTo" placeholder="مثال: د. عمرو">
+    </div>
+
+    <button type="submit" [disabled]="loading">✅ حفظ</button>
+  </form>
+
+  <p class="success" *ngIf="message">{{ message }}</p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</div>

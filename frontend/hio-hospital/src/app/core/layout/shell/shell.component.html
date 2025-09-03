@@ -1,1 +1,54 @@
-<p>shell works!</p>
+<app-header></app-header>
+
+<div class="app-container">
+  <!-- القائمة الجانبية -->
+  <aside class="sidebar">
+    <ul>
+      <li><a routerLink="/dashboard" routerLinkActive="active">📊 لوحة التحكم</a></li>
+
+      <!-- إدارة المرضى -->
+      <li class="has-submenu" (click)="togglePatients()">
+        <span>👨‍⚕️ إدارة المرضى ▾</span>
+        <ul *ngIf="showPatients" class="submenu">
+          <li><a routerLink="/patients/list" routerLinkActive="active">📋 قائمة المرضى</a></li>
+          <li><a routerLink="/patients/new" routerLinkActive="active">➕ إضافة مريض</a></li>
+        </ul>
+      </li>
+
+      <!-- باقي القوائم -->
+<!-- باقي القوائم -->
+<li class="has-submenu" (click)="toggleDoctors()">
+  <span>🧑‍⚕️ الأطباء ▾</span>
+  <ul *ngIf="showDoctors" class="submenu">
+    <li><a routerLink="/doctors/add" routerLinkActive="active">➕ إضافة طبيب</a></li>
+    <li><a routerLink="/doctors/list" routerLinkActive="active">📋 قائمة الأطباء</a></li>
+    
+  </ul>
+</li>
+      <li><a routerLink="/patients/list" routerLinkActive="active">📂 الملفات الطبية</a></li>
+
+
+<!--
+      <li><a routerLink="/pharmacy" routerLinkActive="active">💊 الصيدلية</a></li>
+      <li><a routerLink="/departments" routerLinkActive="active">🏥 الأقسام</a></li>
+-->
+      <!-- الإحالات -->
+      <li class="has-submenu" (click)="toggleReferrals()">
+        <span>🔄 الإحالات ▾</span>
+        <ul *ngIf="showReferrals" class="submenu">
+          <li><a routerLink="/referrals/new" routerLinkActive="active">➕ إضافة إحالة</a></li>
+          <li><a routerLink="/referrals/list" routerLinkActive="active">📋 عرض الإحالات</a></li>
+        </ul>
+      </li>
+
+      <li><a routerLink="/settings" routerLinkActive="active">⚙️ الإعدادات</a></li>
+    </ul>
+  </aside>
+
+  <!-- المحتوى الرئيسي -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+  <app-footer></app-footer>

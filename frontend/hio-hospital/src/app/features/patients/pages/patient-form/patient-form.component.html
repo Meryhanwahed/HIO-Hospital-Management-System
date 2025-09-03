@@ -1,1 +1,69 @@
-<p>patient-form works!</p>
+<h2>➕ إضافة مريض جديد</h2>
+
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+  <div class="form-grid">
+    <label>الاسم</label>
+    <input formControlName="username" placeholder="اسم المريض" />
+
+    <label>الرقم القومي</label>
+    <input formControlName="nationalId" placeholder="الرقم القومي" />
+
+    <label>العمر</label>
+    <input type="number" formControlName="age" placeholder="العمر" />
+
+    <label for="gender">النوع</label>
+<select id="gender" formControlName="gender" aria-label="اختر النوع">
+  <option value="male">ذكر</option>
+  <option value="female">أنثى</option>
+</select>
+
+
+    <label>الهاتف</label>
+    <input formControlName="phone" placeholder="رقم الهاتف" />
+
+    <label>العنوان</label>
+    <input formControlName="address" placeholder="العنوان" />
+
+    <label>الوزن</label>
+    <input type="number" formControlName="weight" placeholder="الوزن" />
+
+    <label>الطول</label>
+    <input type="number" formControlName="height" placeholder="الطول" />
+
+    <label>فصيلة الدم</label>
+    <input formControlName="bloodType" placeholder="A+, B+, O- ..." />
+
+    <label>القسم الطبي</label>
+    <input formControlName="specializedMedicalDepartment" placeholder="مثال: عظام" />
+
+    <label>التشخيص</label>
+    <input formControlName="diagnosis" placeholder="تشخيص الحالة" />
+
+    <label>العادات</label>
+    <input formControlName="habits" placeholder="مثال: تدخين" />
+
+    <label>الأمراض المزمنة</label>
+    <input formControlName="chronicDiseases" placeholder="مثال: ضغط، سكر" />
+
+    <label>وصف الحالة</label>
+    <textarea formControlName="CaseDescription" placeholder="وصف الحالة الطبية"></textarea>
+
+  <label for="needsSurgery">يحتاج جراحة؟</label>
+<select id="needsSurgery" formControlName="needsSurgery" aria-label="هل يحتاج جراحة؟">
+  <option value="yes">نعم</option>
+  <option value="no">لا</option>
+</select>
+
+
+    <label>اسم الطبيب</label>
+    <input formControlName="doctorName" placeholder="اسم الطبيب" />
+
+    <label>تخصص الطبيب</label>
+    <input formControlName="doctorSpecialization" placeholder="التخصص" />
+
+    <label>العلاج</label>
+    <input formControlName="treatments" placeholder="العلاج" />
+  </div>
+
+  <button type="submit" [disabled]="patientForm.invalid">💾 حفظ</button>
+</form>

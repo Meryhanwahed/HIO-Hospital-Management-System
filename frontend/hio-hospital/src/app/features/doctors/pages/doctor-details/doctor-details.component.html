@@ -1,1 +1,21 @@
-<p>doctor-details works!</p>
+<div *ngIf="loading" class="loading">⏳ جاري تحميل البيانات...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="doctor && !loading" class="doctor-details">
+  <h2>👨‍⚕️ تفاصيل الطبيب</h2>
+
+  <div class="card">
+    <table>
+      <tr><th>الاسم</th><td>{{ doctor.doctorname }}</td></tr>
+      <tr><th>الرقم القومي</th><td>{{ doctor.nationalId }}</td></tr>
+      <tr><th>البريد</th><td>{{ doctor.email }}</td></tr>
+      <tr><th>العمر</th><td>{{ doctor.age }}</td></tr>
+      <tr><th>النوع</th><td>{{ doctor.gender }}</td></tr>
+      <tr><th>الهاتف</th><td>{{ doctor.phone }}</td></tr>
+      <tr><th>التخصص</th><td>{{ doctor.specialization }}</td></tr>
+      <tr><th>القسم الطبي</th><td>{{ doctor.medicalDepartment }}</td></tr>
+    </table>
+  </div>
+
+  <button class="back-btn" routerLink="/doctors/list">🔙 رجوع للقائمة</button>
+</div>

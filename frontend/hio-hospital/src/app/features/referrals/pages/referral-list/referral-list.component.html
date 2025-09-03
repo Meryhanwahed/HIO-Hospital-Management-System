@@ -1,1 +1,17 @@
-<p>referral-list works!</p>
+<h2>📋 قائمة الإحالات</h2>
+<div *ngIf="loading" class="loading">⏳ جاري تحميل الإحالات...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<ul *ngIf="!loading && referrals.length > 0" class="referral-list">
+  <li *ngFor="let r of referrals" class="referral-card">
+    <div class="referral-info">
+      <p><strong>القسم:</strong> {{ r.referralToSection }}</p>
+      <p><strong>الطبيب:</strong> {{ r.referralTo }}</p>
+      <p><strong>السبب:</strong> {{ r.reasonForReferral }}</p>
+    </div>
+
+    <button [routerLink]="['/referrals', r._id]" class="view-btn">👁 عرض</button>
+  </li>
+</ul>
+
+<p *ngIf="!loading && referrals.length === 0" class="empty">⚠ لا توجد إحالات</p>

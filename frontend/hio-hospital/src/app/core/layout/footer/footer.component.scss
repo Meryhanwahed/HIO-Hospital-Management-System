@@ -1,0 +1,117 @@
+footer {
+  background: #232020;
+  color: #ffffffd4;
+  padding-top: 60px;
+  padding-bottom: 20px;
+
+  h5 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+  }
+
+  h5::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--main-color);
+    margin-top: 8px;
+    border-radius: 4px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .nav-link {
+    color: #ffffffcc;
+    font-size: 14px;
+    margin-bottom: 8px;
+    transition: color var(--main-transition);
+  }
+
+  .nav-link:hover {
+    color: var(--btn-hover-color);
+    padding-right: 5px;
+  }
+
+  .contact-info li {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #ffffffcc;
+
+    .icon {
+      margin-left: 10px;
+      color: var(--btn-hover-color);
+      font-size: 16px;
+    }
+  }
+
+  form {
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .form-control {
+      border: 1px solid #555;
+      border-radius: 30px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 15px;
+      transition: border var(--main-transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--btn-hover-color);
+      box-shadow: none;
+    }
+
+    .form-control::placeholder {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .btn {
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .rights {
+    border-top: 1px solid #444;
+    padding-top: 15px;
+    margin-top: 30px;
+
+    p {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .link-body-emphasis {
+      background: #3a3838;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: all var(--main-transition);
+    }
+
+    .link-body-emphasis:hover {
+      background: var(--btn-hover-color);
+      color: #000;
+      transform: translateY(-3px);
+    }
+  }
+}

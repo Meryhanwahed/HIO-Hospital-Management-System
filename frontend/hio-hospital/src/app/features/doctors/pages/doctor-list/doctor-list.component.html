@@ -1,1 +1,21 @@
-<p>doctor-list works!</p>
+<h2 class="title">📋 قائمة الأطباء</h2>
+
+<div *ngIf="loading" class="loading">⏳ جاري تحميل الأطباء...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<ul *ngIf="!loading && doctors.length > 0" class="doctor-list">
+  <li *ngFor="let d of doctors" class="doctor-item">
+    <div class="doctor-card">
+      <div class="info">
+        <span class="icon">👨‍⚕️</span>
+        <div class="text">
+          <strong class="name">{{ d.doctorname }}</strong>
+          <p class="details">{{ d.specialization }} - {{ d.medicalDepartment }}</p>
+        </div>
+      </div>
+      <button [routerLink]="['/doctors', d._id]" class="btn view-btn">👁 عرض</button>
+    </div>
+  </li>
+</ul>
+
+<p *ngIf="!loading && doctors.length === 0" class="empty">⚠ لا يوجد أطباء</p>

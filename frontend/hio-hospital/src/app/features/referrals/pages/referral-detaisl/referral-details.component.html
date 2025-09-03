@@ -1,0 +1,13 @@
+<div *ngIf="loading" class="loading">⏳ جاري تحميل بيانات الإحالة...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="referral && !loading" class="referral-details">
+  <h2>📋 تفاصيل الإحالة</h2>
+  <table>
+    <tr><th>القسم المحوّل إليه</th><td>{{ referral.referralToSection }}</td></tr>
+    <tr><th>الطبيب المحوّل إليه</th><td>{{ referral.referralTo }}</td></tr>
+    <tr><th>سبب الإحالة</th><td>{{ referral.reasonForReferral }}</td></tr>
+    <tr><th>معرف المريض</th><td>{{ referral.patientId }}</td></tr>
+    <tr><th>تاريخ الإنشاء</th><td>{{ referral.createdAt | date:'medium' }}</td></tr>
+  </table>
+</div>
