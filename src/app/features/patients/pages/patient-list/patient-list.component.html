@@ -1,46 +1,62 @@
 <h2>📋 قائمة المرضى</h2>
 
+<!-- 🔎 أدوات الفلترة والفرز -->
+<div class="filters">
+  <input 
+    type="text" 
+    placeholder="ابحث بالقسم الطبي (مثال: عظام)" 
+    [(ngModel)]="filterDept"
+  />
+  
+  <select [(ngModel)]="sortField" title="-- اختر ترتيب --">
+    <option value="">-- اختر ترتيب --</option>
+    <option value="entryDate">تاريخ الدخول</option>
+    <option value="age">العمر</option>
+  </select>
+
+  <button (click)="applyFilters()">🔍 بحث</button>
+  <button class="reset" (click)="resetFilters()">↩️ استرجاع المرضى</button>
+</div>
+
 <div *ngIf="loading">⏳ جاري التحميل...</div>
 <div *ngIf="error">{{ error }}</div>
 
 <table *ngIf="!loading && patients.length > 0">
- <thead>
-  <tr>
-    <th>الاسم</th>
-    <th>الرقم القومي</th>
-    <th>العمر</th>
-    <th>النوع</th>
-    <th>الهاتف</th>
-    <th>العنوان</th>
-    <th>التشخيص</th>
-    <th>الطبيب</th>
-    <th>تخصص الطبيب</th>
-    <th>التاريخ</th>
-    <th>الإجراءات</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let patient of patients">
-    <td>{{ patient.username }}</td>
-    <td>{{ patient.nationalId }}</td>
-    <td>{{ patient.age }}</td>
-    <td>{{ patient.gender }}</td>
-    <td>{{ patient.phone }}</td>
-    <td>{{ patient.address }}</td>
-    <td>{{ patient.diagnosis }}</td>
-    <td>{{ patient.doctorName }}</td>
-    <td>{{ patient.doctorSpecialization }}</td>
-    <td>{{ patient.date || '-' }}</td>
-    <td>
-    <button [routerLink]="['/patients', patient._id]">👁 عرض</button>
-    <button (click)="deletePatient(patient._id)">🗑 حذف</button>
-    <button (click)="viewPdf(patient._id)">📄 عرض PDF</button>
-    <button (click)="downloadPdf(patient._id)">📄 تحميل PDF</button>
-
-    </td>
-  </tr>
-</tbody>
-
+  <thead>
+    <tr>
+      <th>الاسم</th>
+      <th>الرقم القومي</th>
+      <th>العمر</th>
+      <th>النوع</th>
+      <th>الهاتف</th>
+      <th>العنوان</th>
+      <th>التشخيص</th>
+      <th>الطبيب</th>
+      <th>تخصص الطبيب</th>
+      <th>التاريخ</th>
+      <th>الإجراءات</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patient of patients">
+      <td>{{ patient.username }}</td>
+      <td>{{ patient.nationalId }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.gender }}</td>
+      <td>{{ patient.phone }}</td>
+      <td>{{ patient.address }}</td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.doctorName }}</td>
+      <td>{{ patient.specialization }}</td>
+      <td>{{ patient.date || '-' }}</td>
+      <td>
+        <button [routerLink]="['/patients', patient._id]">👁 عرض</button>
+        <button (click)="deletePatient(patient._id)">🗑 حذف</button>
+        <button (click)="viewPdf(patient._id)">📄 عرض PDF</button>
+        <button (click)="downloadPdf(patient._id)">⬇️ تحميل PDF</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <div *ngIf="!loading && patients.length === 0">

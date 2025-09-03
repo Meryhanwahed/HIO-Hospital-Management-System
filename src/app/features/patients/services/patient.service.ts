@@ -32,10 +32,11 @@ export class PatientsService {
 
   constructor(private http: HttpClient) {}
 
-  getAllPatients(): Observable<any> {
-  return this.http.get(`${this.apiUrl}/`);
-}
-
+  // ✅ الحصول على جميع المرضى مع إمكانية الترتيب
+  getAllPatients(sort: string = ''): Observable<any> {
+    const url = sort ? `${this.apiUrl}/?sort=${sort}` : `${this.apiUrl}/`;
+    return this.http.get(url);
+  }
 
   // ✅ الحصول على مريض بالـ ID
   getById(id: string): Observable<Patient> {
@@ -43,8 +44,8 @@ export class PatientsService {
   }
 
   // ✅ الحصول على مرضى بقسم معين
-  getFiltered(department: string): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.apiUrl}/getFilteredPatients?specializedMedicalDepartment=${department}`);
+  getFilteredPatients(department: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/getFilteredPatients?specializedMedicalDepartment=${department}`);
   }
 
   // ✅ إضافة مريض
@@ -62,8 +63,8 @@ export class PatientsService {
     return this.http.delete(`${this.apiUrl}/delete/${id}`);
   }
 
- getPatientPdf(patientId: string): Observable<Blob> {
-  return this.http.get(`${this.apiUrl}/file/${patientId}`, { responseType: 'blob' });
-}
-
+  // ✅ الحصول على PDF لمريض
+  getPatientPdf(patientId: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/file/${patientId}`, { responseType: 'blob' });
+  }
 }
